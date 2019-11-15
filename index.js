@@ -29,7 +29,7 @@ function replyMessage(header, data){
 }
 
 
-app.get('/webhook', (req, res) => {
+app.post('/webhook', (req, res) => {
 	var accessToken = 'Ne2CxLOruuQwUY7ToOUrcPJrIxWikm4u55tu0sZq/uRv3SGxkqhuQisX6nmVUq6KO+BH+i6uggv0lOUCS3cEWLFhE3JDXvxyB9ckcE7HJC5bo1dwYQb3qs9mzs/PrPvTRSjrpcqdI0YOwOhPSbocpAdB04t89/1O/w1cDnyilFU=';
 	var content = req.body;
 	console.log("content: " + content);
