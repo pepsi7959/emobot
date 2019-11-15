@@ -39,10 +39,10 @@ app.post('/webhook', (req, res) => {
 	}
 
 	var body = {
-		replyToken: content['events'][0]['replyToken'],
+		replyToken: content.events[0].replyToken,
 		messages:[{
 			type: "text",
-			text: "สวัสดีจ้า"
+			text: "คุณถามว่า " + content.events[0].message.text
 		}]
 	}
 	replyMessage(header, body).then( response => {
