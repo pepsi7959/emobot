@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 
 function replyMessage(headers, data){
 	const lineURL = "https://api.line.me/v2/bot/message/reply";
-	console.log( 'header: ' + JSON.stringify(header));
+	console.log( 'header: ' + JSON.stringify(headers));
 	console.log( 'body: ' + JSON.stringify(data));
 	return axios({
 		method: 'post',
@@ -34,7 +34,7 @@ app.post('/webhook', (req, res) => {
 	var accessToken = 'Ne2CxLOruuQwUY7ToOUrcPJrIxWikm4u55tu0sZq/uRv3SGxkqhuQisX6nmVUq6KO+BH+i6uggv0lOUCS3cEWLFhE3JDXvxyB9ckcE7HJC5bo1dwYQb3qs9mzs/PrPvTRSjrpcqdI0YOwOhPSbocpAdB04t89/1O/w1cDnyilFU=';
 	var content = req.body;
 	console.log("content: " + JSON.stringify(content));
-	var header = {
+	var headers = {
 		'Content-Type': 'application/json',
 		'Authorization': 'Bearer ' + accessToken
 	}
@@ -48,7 +48,7 @@ app.post('/webhook', (req, res) => {
 	}
 
 	
-	replyMessage(header, body).then( response => {
+	replyMessage(headers, body).then( response => {
 		res.statusCode(200);
 		console.log("success");
 	})
