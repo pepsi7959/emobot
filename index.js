@@ -1,6 +1,6 @@
 var app = require('express')();
 const bodyParser = require('body-parser');
-const axios = require('axios');
+const request = request('request');
 
 
 var port = process.env.PORT || 80;
@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 });
 
 
-function replyMessage(header, data){
+function replyMessage(headers, data){
 	const lineURL = "https://api.line.me/v2/bot/message/reply";
 	console.log( 'header: ' + JSON.stringify(header));
 	console.log( 'body: ' + JSON.stringify(data));
@@ -26,10 +26,9 @@ function replyMessage(header, data){
 		method: 'post',
 		url: lineURL,
 		data: data,
-		header: header
+		headers: headers
 	});
 }
-
 
 app.post('/webhook', (req, res) => {
 	var accessToken = 'Ne2CxLOruuQwUY7ToOUrcPJrIxWikm4u55tu0sZq/uRv3SGxkqhuQisX6nmVUq6KO+BH+i6uggv0lOUCS3cEWLFhE3JDXvxyB9ckcE7HJC5bo1dwYQb3qs9mzs/PrPvTRSjrpcqdI0YOwOhPSbocpAdB04t89/1O/w1cDnyilFU=';
@@ -47,6 +46,8 @@ app.post('/webhook', (req, res) => {
 			text: "คุณถามว่า " + content.events[0].message.text
 		}]
 	}
+
+	
 	replyMessage(header, body).then( response => {
 		res.statusCode(200);
 		console.log("success");
