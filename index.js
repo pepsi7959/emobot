@@ -20,6 +20,8 @@ app.get('/', (req, res) => {
 
 function replyMessage(header, data){
 	const lineURL = "https://api.line.me/v2/bot/message/reply";
+	console.log( 'header: ' + JSON.stringify(header));
+	console.log( 'body: ' + JSON.stringify(data));
 	return axios({
 		method: 'post',
 		url: lineURL,
@@ -47,9 +49,11 @@ app.post('/webhook', (req, res) => {
 	}
 	replyMessage(header, body).then( response => {
 		res.statusCode(200);
+		console.log("success");
 	})
 	.catch( err => {
 		res.send(err);
+		console.log('err: ' + err);
 	})
 
 });
