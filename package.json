@@ -1,9 +1,24 @@
 {
-    "name": "emobot",
-    "version": "0.0.1",
-    "description": "Devahoy Node.js with Express 4 Tutorial",
-    "main": "index.js",
-    "dependencies": {
-        "express": "^4.17.1"
-    }
+  "name": "emobot",
+  "version": "0.0.1",
+  "description": "Devahoy Node.js with Express 4 Tutorial",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+	"start":"node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pepsi7959/emobot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pepsi7959/emobot/issues"
+  },
+  "homepage": "https://github.com/pepsi7959/emobot#readme"
 }
