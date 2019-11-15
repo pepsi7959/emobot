@@ -49,7 +49,7 @@ app.post('/webhook', (req, res) => {
 
 	
 	replyMessage(headers, body).then( response => {
-		res.statusCode(200);
+		res.send("ok");
 		console.log("success");
 	})
 	.catch( err => {
@@ -58,7 +58,6 @@ app.post('/webhook', (req, res) => {
 	})
 
 });
-
 
 app.listen( port, () => {
 	console.log('Starting node.js on port ' + port);
